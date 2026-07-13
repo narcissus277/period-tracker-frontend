@@ -1,0 +1,6 @@
+{
+  "name": "period-tracker",
+  "scripts": {
+    "start": "npx serve -s . -l 8080"
+  }
+}
