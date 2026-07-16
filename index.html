@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>🌙 牵牵的月相</title>
+<script>
+window.onerror = function(msg, url, line, col, error) {
+  document.body.innerHTML = '<div style="padding:40px;color:#e85d75;font-size:14px">❌ ' + msg + '<br>行' + line + ':' + col + '</div>';
+  return true;
+};
+</script>
 <meta name="theme-color" content="#0d1b3e">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
