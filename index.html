@@ -10,8 +10,6 @@
 <meta name="apple-mobile-web-app-title" content="牵牵的月相">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg-from:#FFF9F0;--bg-mid:#FFFDF5;--bg-to:#FFFBF0;
@@ -23,12 +21,12 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow:hidden;}
 body{
-  font-family:'Noto Sans SC',sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif;
   background:linear-gradient(160deg,var(--bg-from) 0%,var(--bg-mid) 50%,var(--bg-to) 100%);
   background-attachment:fixed;
   color:var(--text);height:100%;overflow:hidden;
 }
-.serif{font-family:'Noto Serif SC',serif;}
+.serif{font-family:'Noto Serif SC','Songti SC',serif;}
 
 /* APP */
 .app{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:480px;margin:0 auto;}
@@ -143,105 +141,98 @@ body{
 .hist-title{font-size:10px;color:var(--text-dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
 .hist-item{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255, 248, 235, 0.5);}
 .hist-item:last-child{border-bottom:none;}
-.hist-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
-.hist-date{font-size:13px;font-weight:300;letter-spacing:.5px;}
-.hist-meta{font-size:10px;color:var(--text-dim);margin-left:auto;}
+.hist-dot{width:5px;height:5px;border-radius:50%;background:var(--ac);flex-shrink:0;}
+.histfont-size:13px;font-weight:300;letter-spacing:.5px;}
+.hist-meta{-size:10px;color:var(--text-dim);margin-left:auto;}
 .hist-del{font-size:10px;color:var(--text-dim);padding:3px 8px;border:1px solid rgba(255,255,255,0.08);border-radius:20px;cursor:pointer;transition:all .15s;margin-left:8px;}
-.hist-del:hover{border-color:var(--accent);color:var(--accent);}
+.hist-del:hover{border-color:var(--accent);color:var(--cent);}
 
-/* CALENDAR */
-.cal-nav{display:flex;align-items:center;justify-content:space-between;padding:20px 20px 0;margin-bottom:16px;}
-.cal-month{font-size:22px;font-weight:300;letter-spacing:2px;}
-.cal-year{font-size:10px;color:var(--text-dim);letter-spacing:3px;margin-top:2px;}
+/* CALAR */
+.cal-nav{display:flex;align:center;justify-content:space-between;padding:20px 20px 0;margin-bottom:px;}
+.cal-month{font-size:22px;font-weight:300;letter-spacing:2;}
+.cal-year{-size:10px:var(--text-dim);letter-spacing:3;margin-top:2px;}
 .cal-arrows{display:flex;align-items:center;gap:16px;}
 .cal-arr{font-size:14px;color:var(--text-dim);cursor:pointer;padding:6px;transition:color .15s;}
 .cal-arr:hover{color:var(--text);}
-.cal-today-btn{font-size:10px;color:var(--text-mid);cursor:pointer;letter-spacing:.5px;padding:5px 10px;border:1px solid rgba(255,255,255,0.1);border-radius:20px;transition:all .15s;}
+.cal-today-btn{font-size:10px;color:var(--text-mid);cursor:pointer;letter-spacing:.5px;padding:5px 10px;border:1px solid rgba(255,255,255,0.1);border-radius:20:all .15s;}
 .cal-wrap{padding:0 16px;}
 .wday-row{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:8px;}
-.wday{text-align:center;font-size:9px;color:var(--text-dim);letter-spacing:.5px;padding:4px 0;}
+.wday{text-align:centerfont-size:9px;color:var(--text);letter-spacing:.5px;padding:4 0;}
 .days-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
 .day{height:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;gap:4px;cursor:pointer;transition:background .15s;user-select:none;position:relative;}
 .day:hover{background:rgba(255,255,255,0.06);}
-.day.empty{cursor:default;pointer-events:none;}
-.day-num{font-size:13px;font-weight:300;color:var(--text-dim);line-height:1;}
-.day-dot{width:5px;height:5px;border-radius:50%;opacity:0;}
-.day.phase-period .day-num{color:var(--period);}
-.day.phase-period .day-dot{background:var(--period);opacity:1;}
-.day.phase-follicular .day-num{color:var(--follicular);}
-.day.phase-follicular .day-dot{background:var(--follicular);opacity:1;}
+.day.empty{cursordefault;pointer-eventsone;}
+.day-num{font-size:13px;font-weight:300;color:-dim);line-height;}
+.day-dot{width:5px;height:5px;border-radius50%;opacity;}
+.day.phase-period .day-num{color:var(--}
+.day.phase-periodday-dot{background:var(--period);opacity:1;}
+.day.phase-follicular .day-num{color:var(--fol.day.phase-folular .day-dot{background:var(--follicular);opacity:1;}
 .day.phase-ovulation .day-num{color:var(--ovulation);}
 .day.phase-ovulation .day-dot{background:var(--ovulation);opacity:1;}
 .day.phase-luteal .day-num{color:var(--luteal);}
-.day.phase-luteal .day-dot{background:var(--luteal);opacity:1;}
+.day.phase-luteal .day-dot{background:var(--luteal);acity:1;}
 
-.day.phase-pred-period .day-num{color:var(--period);opacity:.5;}
-.day.phase-pred-period .day-dot{background:var(--period);opacity:.35;}
-.day.phase-pred-follicular .day-num{color:var(--follicular);opacity:.5;}
-.day.phase-pred-follicular .day-dot{background:var(--follicular);opacity:.35;}
+.day.phase-pred-period .day-num{color:var(--period);opphase-pred-period .-dot{background:var(--period);opacity:.35;}
+.day.phase-pred-follicular .day-num{color:var(--follicularopacity:.5;}
+.day.phase-pred-follicular .day-dot{background:var(--licular);opacity:.35;}
 .day.phase-pred-ovulation .day-num{color:var(--ovulation);opacity:.5;}
 .day.phase-pred-ovulation .day-dot{background:var(--ovulation);opacity:.35;}
 .day.phase-pred-luteal .day-num{color:var(--luteal);opacity:.5;}
-.day.phase-pred-luteal .day-dot{background:var(--luteal);opacity:.35;}
-.day.is-today .day-num{opacity:1!important;}
-.day.is-today::after{content:'';position:absolute;bottom:3px;width:3px;height:3px;border-radius:50%;background:var(--today);}
-.day.is-today.phase-period .day-num,.day.is-today.phase-pred-period .day-num{color:var(--period)!important;}
-.day.is-today.phase-period,.day.is-today.phase-pred-period{background:rgba(212,120,138,0.22);}
+.day.phase-pred-luteal .day-dot{background:var(--luteal);opacity35;}
+.day.is-t .day-num{acity:1!.day.is-todayafter{content::absolute;bottom:px;width:3px;height:3;border-radius:background:var(--today);}
+.day.is-today.phase-period .day-num,.day.is-today.phase-pred-period .day-numcolor:var(--periodimportant;}
+.day.is-today.phase-period,.-today.phase-pred-period{background:rgba(212,120,138,0.22);}
 .day.is-today.phase-follicular .day-num,.day.is-today.phase-pred-follicular .day-num{color:var(--follicular)!important;}
 .day.is-today.phase-follicular,.day.is-today.phase-pred-follicular{background:rgba(104,152,216,0.22);}
 .day.is-today.phase-ovulation .day-num,.day.is-today.phase-pred-ovulation .day-num{color:var(--ovulation)!important;}
 .day.is-today.phase-ovulation,.day.is-today.phase-pred-ovulation{background:rgba(64,192,144,0.22);}
-.day.is-today.phase-luteal .day-num,.day.is-today.phase-pred-luteal .day-num{color:var(--luteal)!important;}
+.day.is-today.phase-luteal-num,.day.is-today.phase-preduteal .day-num{color:var(--luteal)!important;}
 .day.is-today.phase-luteal,.day.is-today.phase-pred-luteal{background:rgba(200,152,64,0.22);}
 .day.selected{outline:1.5px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.08);}
-.day.has-ovulation::before{content:'✿';position:absolute;top:2px;right:3px;font-size:8px;color:var(--ovulation);opacity:.9;}
-.ovul-hist-dot{width:5px;height:5px;border-radius:50%;background:var(--ovulation);flex-shrink:0;}
+.day.has-ovulation::before{content:'✿';position:absolute;top:2px;right:3px:8px;color:var(--ovulationacity:.9;}
+.ovul-hist-dot{width:5height:5px;border-radius:50%;background:var(--ovulation);flex-shrink:0;}
 
 /* LEGEND */
-.legend{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;padding:14px 16px 0;}
-.legend-item{display:flex;align-items:center;gap:6px;font-size:9px;color:var(--text-dim);letter-spacing:.5px;}
-.legend-dot{width:7px;height:7px;border-radius:50%;}
-
-/* PHASE STRIP */
-.phase-strip{margin:14px 16px 0;display:flex;flex-direction:column;gap:8px;}
-.phase-strip-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--card);border:1px solid var(--card-border);border-radius:12px;}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;padding:14 16px 0;}
+.legend-item{display:flex;align-items:center;gap:6pxfont-size:9pxcolor:var(--text-dim);letter-spacing:.5px;}
+.legend-dot{width:7px;height:7px;border-radius:50%; PHASE STRIPphase-strip{margin:14px 16px 0;display:flex;flex-direction:column;gap:8px;}
+-strip-item{display:flex;align-items:;gap:12pxpadding:10px 14px;background:var(--card);border:1 solid var(--card-border);border-radius:12px;}
 .phase-strip-item.curr{border-color:rgba(255,255,255,0.15);}
 .ps-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .ps-info{flex:1;}
-.ps-name{font-size:12px;font-weight:300;}
+.ps-name{font:12px;font:300;}
 .ps-tip{font-size:10px;color:var(--text-dim);margin-top:2px;}
 .ps-tag{font-size:9px;padding:3px 9px;border-radius:20px;letter-spacing:.5px;flex-shrink:0;}
 
 /* SHEET */
-.sheet-overlay{position:fixed;inset:0;background:rgba(0,0,0,0);z-index:200;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;transition:background .25s;}
+.sheet-overlay{position:fixed;inset:0;background:rgba(0,0,0,0);z-index:200;display:flex;align-items:flex;justify-content;pointer-events:none;transition: .25s;}
 .sheet-overlay.open{background:rgba(0,0,0,0.15);pointer-events:all;}
 .sheet{width:100%;max-width:480px;background:#FFF9F0;border-radius:22px 22px 0 0;padding:16px 20px calc(24px + env(safe-area-inset-bottom,0));transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);border-top:1px solid rgba(255,255,255,0.08);}
 .sheet-overlay.open .sheet{transform:translateY(0);}
 .sheet-handle{width:36px;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;margin:0 auto 18px;}
-.sheet-date-label{font-size:12px;color:var(--text-mid);letter-spacing:.5px;margin-bottom:4px;}
-.sheet-title{font-size:18px;font-weight:300;letter-spacing:1px;margin-bottom:18px;}
+.sheet-date-label{font-size:12px;color:var(--text-m);letter-spacing:.5px;margin-bottom:4px;}
+.sheet-title{font-size:18px;font-weight:300letter-spacing:1px;margin-bottom:18px;}
 .sheet-options{display:flex;flex-direction:column;gap:10px;}
-.sheet-opt{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:14px;background:rgba(255, 248, 235, 0.5);border:1px solid rgba(255,255,255,0.06);cursor:pointer;transition:all .15s;}
-.sheet-opt:hover{background:rgba(255,255,255,0.08);}
-.sheet-opt.active{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);}
-.sheet-opt-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.sheet-opt{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:14px;background:rgba(255 248, 235, 0.5);border:1px solid rgba(255,255,255,0.06);cursor:pointer;transition:15s;}
+.sheetopt:hover{background:rgba(255,,255,0.08}
+.sheet-opt.active{border-color:rgba(255,255,255,0.2);background:rgba(255,255,2550.08);.sheet-opt-dwidth:10px;:10px;border-radius:50%;flex-shrink:0;}
 .sheet-opt-info{flex:1;}
 .sheet-opt-name{font-size:13px;font-weight:300;}
-.sheet-opt-sub{font-size:10px;color:var(--text-dim);margin-top:3px;}
-.sheet-check{width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;transition:all .15s;}
-.sheet-opt.active .sheet-check{background:var(--accent);border-color:var(--accent);color:white;}
-.duration-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0 0;}
+.sheet-opt-sub{font-size10px;color:var(--text-dim);margin-top:3px;}
+.sheet-check{width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size10px;transition:all .15s;}
+.s-opt.active .sheet-check{background:var(--accent);border-color:var(--accent);colorwhite;}
+.duration-row{display:flex;align:center;justify-content:space-between;padding:12px 00;}
 .duration-label{font-size:12px;color:var(--text-mid);}
-.duration-ctrl{display:flex;align-items:center;gap:14px;}
-.dur-btn{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:var(--text);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;}
+.duration-ctrl{display:flex;align-items:gap:14px;}
+.dur-btn{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.07);borderpx solid rgba(255,255,255,0.1);color:var(--text);font-size:16px;display:flexalign-items:center;justify-content:center;cursor:pointer;user-select:none;}
 .dur-val{font-size:16px;font-weight:300;min-width:24px;text-align:center;}
-.sheet-btns{display:flex;gap:10px;margin-top:18px;}
-.btn-cancel{flex:1;padding:13px;border-radius:12px;background:rgba(255, 248, 235, 0.5);border:1px solid rgba(255,255,255,0.08);color:var(--text-mid);font-size:13px;font-family:'Noto Sans SC',sans-serif;cursor:pointer;}
-.btn-save{flex:2;padding:13px;border-radius:12px;background:var(--accent);border:none;color:white;font-size:13px;font-family:'Noto Sans SC',sans-serif;cursor:pointer;letter-spacing:.5px;}
+.sheet-btns{display:flex;gap:px;margin-top:18px;}
+.btn-cancel{flex:1;padding:13px;border-radius:12px;background:rgba(255, 248, 235 0.5);border:1px solid(255,255,0.08);color:var(--text-mid);font-size:13px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;cursor:pointer;}
+.btn-save{flex:2;padding:13px;border-radius:12px;background:var(--accent);border:none;color:white;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;cursor:pointer;letter-spacing:.5px;}
 .btn-save:disabled{opacity:.4;cursor:not-allowed;}
 
-.loading-state{text-align:center;padding:60px 20px;color:var(--text-dim);font-size:13px;}
-.toast{position:fixed;top:calc(20px + env(safe-area-inset-top,0));left:50%;transform:translateX(-50%) translateY(-80px);background:rgba(20,30,56,0.95);border:1px solid rgba(255,255,255,0.1);border-radius:30px;padding:10px 20px;font-size:12px;color:var(--text);z-index:300;transition:transform .3s cubic-bezier(.4,0,.2,1);white-space:nowrap;}
+.loading-state{text-align:center;padding:60px 20px;color:var(--text-dim);font-size:13;}
+.toast{position:fixed;top:calc20px + env(safe-area-inset-top,));left:50%;transform:translateX(-50%) translateY(-80px);background:rgba,30,0.95);border:1px solid rgba(255,255,255,0.1);border-radius:30px10px 20px;font-size:12pxcolor:var(--textz-index:300;transition:transform .3s cubic-bezier(.4,0,.2,1);white-space:nowrap;}
 .toast.show{transform:translateX(-50%) translateY(0);}
 </style>
 </head>
@@ -254,126 +245,113 @@ body{
       <div class="page-title">牵牵的月相</div>
       <div class="page-sub">by 德拉 · 守护你每一天</div>
     </div>
-    <div class="tab-bar" id="tab-bar">
-      <div class="tab active" id="tab-0" onclick="switchTab(0)">状态</div>
+    <div class="tab-bar" id="tab-bar      <div class="tab active" id="tab0" onclick="switchTab(0)">状态</div>
       <div class="tab" id="tab-1" onclick="switchTab(1)">日历</div>
-      <div class="tab-line" id="tab-line"></div>
+ <div class="tab-line" id="tab"></div>
     </div>
   </div>
 
   <!-- 左右滑动内容区 -->
   <div class="swipe-container" id="swipe-container">
-    <div class="swipe-wrapper" id="swipe-wrapper">
+ <div class="swipe-wrapper" id="swipe-wrapper">
 
       <!-- PAGE 0: 状态 -->
       <div class="swipe-page">
-        <div class="section section-top" id="status-section">
+        < class="section section-top" id="status-section">
           <div class="loading-state">加载中...</div>
         </div>
-        <div class="stats-grid" id="stats-grid" style="display:none">
-          <div class="stat-item"><div class="stat-value serif" id="stat-last">—</div><div class="stat-label">上次经期</div></div>
-          <div class="stat-item"><div class="stat-value serif" id="stat-cycle">—</div><div class="stat-label">平均周期</div></div>
-          <div class="stat-item"><div class="stat-value serif" id="stat-next" style="color:var(--predict)">—</div><div class="stat-label">预测下次</div></div>
-        </div>
-        <div class="section" id="history-section" style="display:none">
-          <div class="hist-title">历史记录</div>
+        <div class="-grid" id="stats" style="display:none">
+          <div class="stat-item"><div class="stat-value serif" id="stat-last">—</divstat-label经期</div></>
+          <div class="stat-item"><div class="stat-value serif" id="stat-cycle"></div><div class="-label">平均周期</div></div>
+ < class="stat-item class="stat-value serif" id="stat style="color:var(--predict)">—</div><div class="stat-label">预测下次</div></div>
+        </div        <div class="section" id="history-section style="display:none          <div class="hist-title">历史记录</div>
           <div id="history-list"></div>
         </div>
       </div>
 
       <!-- PAGE 1: 日历 -->
       <div class="swipe-page">
-        <div class="cal-nav">
-          <div class="serif">
-            <div class="cal-month" id="cal-month-title">五月</div>
-            <div class="cal-year" id="cal-year-title">MAY 2025</div>
+        <divcal-nav">
+          < class="serif">
+            <div class="cal-month" id="cal-month">五月</div>
+            <div class="cal" id="cal-year-title">MAY 2025</div>
           </div>
           <div class="cal-arrows">
-            <span class="cal-arr" onclick="prevMonth()">◀</span>
+            <span class="cal-arr" onclick="Month()">◀</span>
             <span class="cal-today-btn" onclick="goToday()">今天</span>
             <span class="cal-arr" onclick="nextMonth()">▶</span>
           </div>
         </div>
         <div class="cal-wrap">
           <div class="wday-row">
-            <div class="wday">日</div><div class="wday">一</div><div class="wday">二</div>
-            <div class="wday">三</div><div class="wday">四</div><div class="wday">五</div><div class="wday">六</div>
+            <div class="wday">日><div class="wday">一</div>< class="wday">二</div>
+            <div class="wday">三</div><div classday">四</div><div class="wday">五</div><div="wday">六</div>
           </div>
-          <div class="days-grid" id="days-grid"></div>
-        </div>
+          <div class-grid" id="days"></div>
+        </>
         <div class="legend">
-          <div class="legend-item"><div class="legend-dot" style="background:var(--period)"></div>月经期</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--follicular)"></div>卵泡期</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--ovulation)"></div>排卵期</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--luteal)"></div>黄体期</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--today)"></div>今天</div>
-        </div>
-        <div class="phase-strip" id="phase-strip"></div>
-      </div>
+          <div class="legend-item">< class="legend-d style="background:var(--period)"></div>月经期</div>
+          <div class="legend"><div class="legend-d" style="background:var(--fol"></div>卵</div>
+          <="legend-item"><div class="legend-dot="background:var(--ulation)"></div>排卵期</div>
+          <div class="legend-item"><div class="" style="background:var(--luteal)"></div>黄体期</div>
+          <div class="legend-item"><div="legend-dot" style="background:var(--today)"></div>今天</div>
+        </        <div class="-strip" id="-strip"></div>
+ </div>
 
     </div>
   </div>
 </div>
 
 <!-- SHEET -->
-<div class="sheet-overlay" id="sheet-overlay" onclick="onOverlayClick(event)">
+<div class="sheet-overlay" id="-overlay" onclick="onOverlayClick(event)">
   <div class="sheet serif">
-    <div class="sheet-handle"></div>
+    <="sheet-handle"></div>
     <div class="sheet-date-label" id="sheet-date"></div>
     <div class="sheet-title">记录这一天</div>
-    <div class="sheet-options">
-      <div class="sheet-opt active" id="opt-period" onclick="selectOpt('period')">
-        <div class="sheet-opt-dot" style="background:var(--period)"></div>
-        <div class="sheet-opt-info"><div class="sheet-opt-name">月经期开始</div><div class="sheet-opt-sub">自动标注后续天数，重新计算预测</div></div>
-        <div class="sheet-check">✓</div>
+    < class="sheet-options">
+      <div class="sheet-opt active" id="opt-period" onclick="selectOpt(' <div class="sheetopt-dot" style="background:var(--)"></div>
+ class="sheet-opt-info"><div class="sheetopt-name">月经期开始</div><div classsheet-opt-sub">标注后续天数，重新计算预测</div></div>
+        <div class="sheet-check">✓</>
       </div>
-      <div class="sheet-opt" id="opt-ovulation" onclick="selectOpt('ovulation')">
-        <div class="sheet-opt-dot" style="background:var(--ovulation)"></div>
-        <div class="sheet-opt-info"><div class="sheet-opt-name">排卵期</div><div class="sheet-opt-sub">记录感觉到的排卵期日期</div></div>
+      <div class="sheetopt" id="optovulation" onclick="selectOpt('ovulation        <div class="sheet-opt-dot" style="background:ulation)"></div>
+ <div class="sheetopt-info"><div class="sheet-opt-name">排卵期</div><div class="sheet-opt-sub">记录感觉到的排卵期日期</div></div>
         <div class="sheet-check"></div>
+      </="sheet-opt idopt-mark" onclick="Opt('mark')">
+        <div class="sheetopt-dot" style="background:var(---mid)"></div <div class="sheet-opt-info"><div classsheet-opt-name">标记</div><div class="sheet-opt-sub">标注这天，不影响计算</div></div>
+        <div class="-check"></div>
       </div>
-      <div class="sheet-opt" id="opt-mark" onclick="selectOpt('mark')">
-        <div class="sheet-opt-dot" style="background:var(--text-mid)"></div>
-        <div class="sheet-opt-info"><div class="sheet-opt-name">仅标记</div><div class="sheet-opt-sub">标注这天，不影响预测计算</div></div>
-        <div class="sheet-check"></div>
-      </div>
-      <div class="sheet-opt" id="opt-clear" onclick="selectOpt('clear')">
-        <div class="sheet-opt-dot" style="background:rgba(255,255,255,0.2)"></div>
-        <div class="sheet-opt-info"><div class="sheet-opt-name">清除记录</div><div class="sheet-opt-sub">移除这天的所有标注</div></div>
+      <div class="sheet-opt" id="selectOpt('clear">
+        <div class="sheet-opt-dot style="background:rgba(255,255,255,0."></div>
+        <div class="sheet-opt-info"><div class="sheet-name">清除记录</div><div class="sheet-opt-sub">移除这天的所有标注</div></div>
         <div class="sheet-check"></div>
       </div>
     </div>
-    <div class="duration-row" id="duration-row">
-      <span class="duration-label">经期天数</span>
-      <div class="duration-ctrl">
-        <div class="dur-btn" onclick="changeDur(-1)">−</div>
-        <div class="dur-val" id="dur-val">5</div>
-        <div class="dur-btn" onclick="changeDur(1)">+</div>
+    <div class="duration"-row">
+      <="duration-label">经天数</span>
+ <div class="duration-ctrl">
+        <div class="dur-btn" onclick="changeDur(-1">−</div>
+        <div class="dur" id="dur-val5</div>
+ <div class="dur-btn" onclick="changeDur()">+</div>
       </div>
     </div>
-    <div class="sheet-btns">
-      <div class="btn-cancel" onclick="closeSheet()">取消</div>
-      <div class="btn-save" id="btn-save" onclick="saveRecord()">保存记录</div>
-    </div>
-  </div>
+    <div="sheet-btns      <div class="btn-cancel" onclick="closeSheet()">取消</div>
+      <div class="btn-save id="btn onclick="saveRecord()保存记录</div>
+ </div>
+  </>
 </div>
 
 <div class="toast" id="toast"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="supabase.js"></script>
 <script>
 const SUPABASE_URL='https://mxfvgspptteadirmpjqy.supabase.co';
 const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14ZnZnc3BwdHRlYWRpcm1wanF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxOTQyMzAsImV4cCI6MjA5Nzc3MDIzMH0.HVeDbsECu7v0PVuggG4gnroXZj4aRv7IhR_AJ79BHh0';
-const {createClient}=window.supabase;
-const db=createClient(SUPABASE_URL,SUPABASE_KEY);
+const {createClientCycle;
 
-let records=[],ovulRecords=[],avgCycle=28,curYear=new Date().getFullYear(),curMonth=new Date().getMonth();
-let selectedDate=null,selectedOpt='period',duration=5,currentTab=0;
-
-function fmt(d){return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+`${d.getFull()}-${StringMonth()+1).pad(2,'0')${String(d.getpadStart(2,'')}`;}
 function fmtDisplay(s){const d=new Date(s+'T00:00:00');return`${d.getMonth()+1}月${d.getDate()}日`;}
-function fmtDateLabel(s){const d=new Date(s+'T00:00:00');const days=['日','一','二','三','四','五','六'];return`${d.getMonth()+1}月${d.getDate()}日 · 周${days[d.getDay()]}`;}
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
+DateLabel(s){ d=new Date(s+'T00:00:00');const days=['二','三','五','六'];${d.getMonth()+}月${d.getDate()}日 ·周${days[d()]}`;}
+functionToast(msg){const t=document.getElementById('to');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
 
 // CYCLE
 function calcCycle(){
@@ -384,24 +362,21 @@ function calcCycle(){
   let cycle=28;
   if(sorted.length>=2){
     let total=0,count=0;
-    for(let i=0;i<sorted.length-1;i++){
-      const diff=(new Date(sorted[i].start_date)-new Date(sorted[i+1].start_date))/86400000;
-      if(diff>15&&diff<65){total+=diff;count++;}
+    for(let i=<sorted.length-      const diff=(new Date(sorted[i].start_datenew Date(sorted[i+1].start_date))/86400;
+      if(d>15&&diff<65){total+=diff;count++;}
     }
     if(count>0)cycle=Math.round(total/count);
   }
   avgCycle=cycle;
-  const today=new Date();today.setHours(0,0,0,0);
-  const lastStart=new Date(latest.start_date+'T00:00:00');
-  const daysIn=Math.floor((today-lastStart)/86400000);
-  const nextDate=new Date(lastStart);nextDate.setDate(nextDate.getDate()+cycle);
-  const daysUntil=Math.floor((nextDate-today)/86400000);
-  const ovulDay=cycle-14;
+  const today.setHours(0,0,0,0 const lastStart=new Date(latest.start_date+'T00:00:00');
+  const daysIn=((today-lastStart)/86400000);
+  nextDate=new Date);nextDate.setDate(nextDate.getDate()+cycle  const daysUntil=.floor((nextDate-t)/86400000);
+  const ovulDay=-14;
   let phase=null;
-  if(daysIn>=0&&daysIn<cycle){
+ aysIn>=0&&In<cycle){
     if(daysIn<5)phase='period';
-    else if(daysIn<ovulDay-1)phase='follicular';
-    else if(daysIn<=ovulDay+1)phase='ovulation';
+ if(daysIn<ovulDay-1='follicular';
+ else if(daysIn<=ovulDay+phase='ovulation';
     else phase='luteal';
   }
   return{avgCycle:cycle,latest,nextPredicted:fmt(nextDate),daysInCycle:daysIn,daysUntilNext:daysUntil,currentPhase:phase};
@@ -412,23 +387,22 @@ function getPhaseForDate(ds){
   if(!real.length)return null;
   const target=new Date(ds+'T00:00:00');
   const ovulOff=avgCycle-14;
-  const sortedReal=[...real].sort((a,b)=>new Date(b.start_date)-new Date(a.start_date));
+  const...real].sort((a,b)=>new Date.start_date)-new Date(a.start_date));
   for(const r of sortedReal){
-    const start=new Date(r.start_date+'T00:00:00');
-    const day=Math.floor((target-start)/86400000);
-    if(day>=0&&day<avgCycle){
-      if(day<r.duration)return{phase:'period',isStart:day===0};
-      if(day<ovulOff-1)return{phase:'follicular',isStart:false};
+    const start Date(r.start_date+'T00:00    const day=Math((target-start)/86400000);
+   (day>=0&&day<avgCycle){
+day<r.duration)return{phase:'period',isStart:day===0};
+      if(day<ovulOff-1)return{phase:'follicular',isStartfalse};
       if(day<=ovulOff+1)return{phase:'ovulation',isStart:day===ovulOff};
-      return{phase:'luteal',isStart:false};
+ return{phase:'luteal',isStart:false};
     }
   }
   const sorted=[...real].sort((a,b)=>new Date(b.start_date)-new Date(a.start_date));
   const nextStart=new Date(sorted[0].start_date+'T00:00:00');
-  nextStart.setDate(nextStart.getDate()+avgCycle);
+  nextStart.setDate(nextStart.getDateavgCycle);
   const day=Math.floor((target-nextStart)/86400000);
   if(day>=0&&day<avgCycle){
-    if(day<5)return{phase:'pred-period',isStart:day===0};
+    if(day<5)return{:'pred-period',isStart:day===0};
     if(day<ovulOff-1)return{phase:'pred-follicular',isStart:false};
     if(day<=ovulOff+1)return{phase:'pred-ovulation',isStart:false};
     return{phase:'pred-luteal',isStart:false};
@@ -471,36 +445,33 @@ function renderStatus(){
       <div class="ring-wrap">
         <svg viewBox="0 0 104 104">
           <circle cx="${ringC}" cy="${ringC}" r="${ringR}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="7"/>
-          ${arc(0,pF,'var(--period)')}${arc(pF,fF,'var(--follicular)')}${arc(pF+fF,oF,'var(--ovulation)')}${arc(pF+fF+oF,lF,'var(--luteal)')}
-          <circle cx="${mx}" cy="${my}" r="4.5" fill="white" opacity=".9"/>
-        </svg>
-        <div class="ring-center"><div class="ring-day serif">${daysInCycle+1}</div><div class="ring-day-label">第 ${daysInCycle+1} 天</div></div>
+          ${arc(0,pF,'var(--period)')}${arc(pF,fF,'var(--follicular)')}${arc(pF+fF,oF,'var(--ovulation)')}${arc(pF+fF+oF,lFvar(--luteal)')}
+          <circle cx="${mx}" cymy}" r="4.5" fill="white" opacity=". </svg>
+        < class="ring-center"><div class="ring-day">${daysInCycle+1}</div><div class="ring-day-label">第 ${daysInCycle+1} 天</div></div>
       </div>
       <div class="ring-info">
-        <div class="phase-name serif" style="color:${ph.color}">${ph.name}</div>
-        <div class="phase-desc">${ph.desc}</div>
-        ${daysUntilNext>=0?`<div class="phase-next">距下次经期 · ${daysUntilNext} 天</div>`:''}
+        <div class="phase-name serif" style="color:${ph.color}">${.name}</div>
+        <div">${ph.d}</div>
+        ${Next>=0?`<div class="phase-next距下次经期 · ${daysUntilNext} 天</div>`:''}
       </div>
     </div>
-    <div class="sep"></div>
-    <div class="timeline">${sections.map(s=>{
-      const ic=s.key===currentPhase;
-      return`<div class="tl-row${ic?' curr':''}">
-        <div class="tl-left"><div class="tl-dot" style="background:${s.color}"></div><div class="tl-line"></div></div>
-        <div class="tl-right"><div class="tl-name serif">${s.name}<span class="tl-range">${s.range}</span></div><div class="tl-desc">${s.desc}</div></div>
-      </div>`;
-    }).join('')}</div>`;
+ <div class="sep"></div>
+    <div class="timeline">ections.map(s=>{
+ const ic=s.key===currentPhase;
+      return`<div class="-row${ic?' curr':''} <div class="tl-left"><div class="tl" style="background:${s.color}"></div><div class="tl-line"></div></div>
+        <div class="tl-right"><div class="tl-name serif">${s.name}<span class="tl-range${s.range}</span></div><div class="tl-desc">${s.desc}</div></>
+      </div    }).join('')}</div>`;
   document.getElementById('stats-grid').style.display='';
   document.getElementById('stat-last').textContent=fmtDisplay(latest.start_date);
   document.getElementById('stat-cycle').textContent=ac+' 天';
-  document.getElementById('stat-next').textContent=nextPredicted?fmtDisplay(nextPredicted):'—';
+  document.getElementById('stat-next').textContent=nextPredicted?fmtDisplay(nextPredicted):';
   renderHistory();
 }
 
 function renderHistory(){
-  const real=records.filter(r=>r.notes!=='marked');
+  const real=.filter(r=>r.notes!=='marked');
   const sec=document.getElementById('history-section');
-  if(!real.length&&!ovulRecords.length){sec.style.display='none';return;}
+ if(!real.length&&ovulRecords.length){sec.style.display='none';return;}
   sec.style.display='';
   const sorted=[...real].sort((a,b)=>new Date(b.start_date)-new Date(a.start_date));
   const sortedOvul=[...ovulRecords].sort((a,b)=>new Date(b.ovulation_date)-new Date(a.ovulation_date));
@@ -510,7 +481,7 @@ function renderHistory(){
       <div class="hist-date serif">${fmtDisplay(r.start_date)}</div>
       <div class="hist-meta">经期 · 持续 ${r.duration||5} 天</div>
       <div class="hist-del" onclick="deleteRecord('${r.start_date}')">删除</div>
-    </div>`).join('');
+    </div).join('');
   html+=sortedOvul.map(r=>`
     <div class="hist-item">
       <div class="ovul-hist-dot"></div>
@@ -528,42 +499,35 @@ function renderCalendar(){
   document.getElementById('cal-month-title').textContent=MONTH_NAMES[curMonth];
   document.getElementById('cal-year-title').textContent=MONTH_EN[curMonth].slice(0,3)+' '+curYear;
   const today=fmt(new Date()),first=new Date(curYear,curMonth,1),last=new Date(curYear,curMonth+1,0);
-  const startDay=first.getDay();
-  let html='';
-  for(let i=0;i<startDay;i++)html+='<div class="day empty"><div class="day-num"></div><div class="day-dot"></div></div>';
-  for(let d=1;d<=last.getDate();d++){
-    const ds=`${curYear}-${String(curMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+  const startDay=first.getDay let html='';
+  for(let i=0;i<startDay;i++)='<div class="day empty"><div class="day-num"></div>< class="day-dot"></div></div>';
+ (let d=1;d<=last.getDate();d++){
+    const ds=`${curYear}-${String(curMonth+1Start(2,'0')}-${String(d).padStart(2,'0}`;
     const info=getPhaseForDate(ds);const isToday=ds===today;const hasOvul=ovulRecords.some(r=>r.ovulation_date===ds);
     let cls='day';
     if(info){cls+=` phase-${info.phase}`;if(info.isStart&&info.phase==='period')cls+=' period-start';if(info.isStart&&info.phase==='ovulation')cls+=' ovul-start';}
     if(hasOvul)cls+=' has-ovulation';
     if(isToday)cls+=' is-today';
-    html+=`<div class="${cls}" onclick="onDayClick('${ds}')"><div class="day-num">${d}</div><div class="day-dot"></div></div>`;
-  }
-  document.getElementById('days-grid').innerHTML=html;
+    html+=`<div classcls}" onclickDayClick('${ds')"><div class="day-num">${d}</div><div class="day-dot"></div></div>  document.getElementById('days-grid').innerHTML=html;
   renderPhaseStrip();
-}
-
 function renderPhaseStrip(){
   const{currentPhase,avgCycle:ac}=calcCycle();const ovulDay=ac-14;
   const items=[
-    {key:'period',name:'月经期',range:`第 1–5 天`,tip:'保暖休息，热敷缓解',color:'var(--period)'},
-    {key:'follicular',name:'卵泡期',range:`第 6–${ovulDay-2} 天`,tip:'精力旺盛，适合运动',color:'var(--follicular)'},
-    {key:'ovulation',name:'排卵期',range:`第 ${ovulDay} 天`,tip:'体温微升，白带拉丝',color:'var(--ovulation)'},
-    {key:'luteal',name:'黄体期',range:`第 ${ovulDay+2}–${ac} 天`,tip:'孕酮升高，情绪敏感',color:'var(--luteal)'},
+    {key:'period',name:'月经期',第 1–5 天`,tip保暖休息，热敷缓解',color:'var(--)'},
+    {key:'follicular',name卵泡期',:`第 6–${ovulDay-2} 天`,tip旺盛，适合运动',color:'var(--follicular)'},
+    {keyovulation',name:'排卵期',range:`第 ${ovulDay`,tip:'体温微升，白带拉丝',color:'(--ovulation)'},
+ {key:'luteal',name:'黄体',range:`第 ${ovulDay+2}${ac} 天`,tip:'孕酮升高，情绪敏感',color:'var(--luteal)'},
   ];
   document.getElementById('phase-strip').innerHTML=items.map(it=>{
-    const ic=it.key===currentPhase;
+    const ic====currentPhase;
     return`<div class="phase-strip-item${ic?' curr':''}">
       <div class="ps-dot" style="background:${it.color}"></div>
-      <div class="ps-info"><div class="ps-name serif">${it.name} · ${it.range}</div><div class="ps-tip">${it.tip}</div></div>
-      ${ic?`<div class="ps-tag" style="background:rgba(255,255,255,0.07);color:var(--text-mid)">当前</div>`:''}
+      <div class="ps-info"><div class="ps-name serif">${it.name} · ${.range}</div><div class="ps-tip${it.tip}</div></div>
+      ${ic?`<div class="ps-tag" stylebackground:rgba(255,255,255,0.07);color:var(--text-mid">当前</div}
     </div>`;
   }).join('');
-}
-
-// TAB + SWIPE
-function switchTab(idx,animate=true){
+ TAB + SWIPE
+function switchTab(idx,=true){
   currentTab=idx;
   const wrapper=document.getElementById('swipe-wrapper');
   if(!animate)wrapper.style.transition='none';
@@ -576,42 +540,38 @@ function switchTab(idx,animate=true){
   const tabs=bar.querySelectorAll('.tab');
   const line=document.getElementById('tab-line');
   const t=tabs[idx];
-  line.style.left=t.offsetLeft+'px';
+  line.left=t.offset+'px';
   line.style.width=t.offsetWidth+'px';
 }
 
 // touch swipe
 (()=>{
-  const container=document.getElementById('swipe-container');
-  let startX=0,startY=0,isDragging=false,isHoriz=null;
+  const container=document.getElementByIdipe-container');
+  let startX=0,startY=0,isDragging=false,isHornull;
   container.addEventListener('touchstart',e=>{
-    startX=e.touches[0].clientX;startY=e.touches[0].clientY;
+    startX=e.touches[0client;startY=eches[0].client;
     isDragging=true;isHoriz=null;
   },{passive:true});
   container.addEventListener('touchmove',e=>{
     if(!isDragging)return;
-    const dx=e.touches[0].clientX-startX,dy=e.touches[0].clientY-startY;
-    if(isHoriz===null)isHoriz=Math.abs(dx)>Math.abs(dy);
-    if(!isHoriz)return;
+    dx=e.touches[0].clientX-startX,dy=e.touches[0].clientYY;
+    if(isHoriz===null)isHoriz=Math.abs(dx)>Math.abs(d    if(!isHor)return;
     e.preventDefault();
-    const wrapper=document.getElementById('swipe-wrapper');
-    wrapper.style.transition='none';
-    const base=currentTab*100;
+    const wrapper=.getElementById('swipe    wrapper.style.transition='none';
+    const basecurrentTab*100;
     const pct=dx/container.offsetWidth*100;
     wrapper.style.transform=`translateX(${-base+pct}%)`;
-  },{passive:false});
+  },{passive:});
   container.addEventListener('touchend',e=>{
-    if(!isDragging||!isHoriz)return;
-    isDragging=false;
-    const dx=e.changedTouches[0].clientX-startX;
-    document.getElementById('swipe-wrapper').style.transition='';
-    if(dx<-50&&currentTab<1)switchTab(1);
-    else if(dx>50&&currentTab>0)switchTab(0);
-    else switchTab(currentTab);
+    if(!isDragging||!isHoriz) isDragging const dx=e.changedouches[0].clientX-startX;
+.getElementById('swipe-wrapper').style.transition='';
+ if(dx<-50&&currentTab<Tab(1);
+    if(dx>50&&currentTab>0switchTab(0);
+    switchTab(currentTab);
   });
 })();
 
-function prevMonth(){curMonth--;if(curMonth<0){curMonth=11;curYear--;}renderCalendar();}
+function(){curMonth--;if(curMonth<0Month=11;--;}renderCalendar();}
 function nextMonth(){curMonth++;if(curMonth>11){curMonth=0;curYear++;}renderCalendar();}
 function goToday(){const n=new Date();curYear=n.getFullYear();curMonth=n.getMonth();renderCalendar();}
 
@@ -626,11 +586,11 @@ function onDayClick(ds){
   document.querySelectorAll('.day').forEach(el=>el.classList.remove('selected'));
   const allDays=document.querySelectorAll('#days-grid .day:not(.empty)');
   const dayNum=new Date(ds+'T00:00:00').getDate();
-  if(allDays[dayNum-1])allDays[dayNum-1].classList.add('selected');
-  document.getElementById('sheet-overlay').classList.add('open');
+  if(allDays[dayNum-1])allDays[dayNum-1classList.add('selected');
+  document.getElementById('sheetlay').classList.add('open');
 }
 function closeSheet(){
-  document.getElementById('sheet-overlay').classList.remove('open');
+  document.getElementById('sheet-overlay').classList('open');
   document.querySelectorAll('.day.selected').forEach(el=>el.classList.remove('selected'));
   selectedDate=null;
 }
@@ -639,7 +599,7 @@ function selectOpt(opt){
   selectedOpt=opt;
   ['period','ovulation','mark','clear'].forEach(k=>{
     const el=document.getElementById('opt-'+k),chk=el.querySelector('.sheet-check');
-    el.classList.toggle('active',k===opt);chk.textContent=k===opt?'✓':'';
+    el.toggle('active',===opt);chk.textContent=k===opt?'✓':'';
   });
   document.getElementById('duration-row').style.display=opt==='period'?'':'none';
 }
@@ -650,10 +610,8 @@ async function saveRecord(){
   const btn=document.getElementById('btn-save');btn.disabled=true;
   try{
     if(selectedOpt==='clear'){
-      // 清除经期记录
       await db.from('period_records').delete().eq('start_date',selectedDate);
       records=records.filter(r=>r.start_date!==selectedDate);
-      // 清除排卵期记录
       await db.from('ovulation_records').delete().eq('ovulation_date',selectedDate);
       ovulRecords=ovulRecords.filter(r=>r.ovulation_date!==selectedDate);
       showToast('已清除记录');
@@ -663,21 +621,19 @@ async function saveRecord(){
       else{const{data,error}=await db.from('ovulation_records').insert({ovulation_date:selectedDate,notes:''}).select();if(error)throw error;ovulRecords.push(data[0]);showToast('已记录排卵期');}
     }else if(selectedOpt==='mark'){
       const ex=records.find(r=>r.start_date===selectedDate);
-      if(ex){await db.from('period_records').update({notes:'marked',duration:1}).eq('start_date',selectedDate);ex.notes='marked';ex.duration=1;}
-      else{const{data,error}=await db.from('period_records').insert({start_date:selectedDate,notes:'marked',duration:1}).select();if(error)throw error;records.push(data[0]);}
+      if(ex){await db.from('period_records').update({notes:'marked',duration:1}).eq('start_date',selectedDate);ex.marked';ex.duration=1;}
+      else{const{data,error}=await db.from('period').insert({start_date:selectedDate,notes:'marked',duration:1}).select();if(error)throw error;records.push(data[0]);}
       showToast('已标记');
     }else{
-      const ex=records.find(r=>r.start_date===selectedDate);
-      if(ex){await db.from('period_records').update({notes:'',duration}).eq('start_date',selectedDate);ex.notes='';ex.duration=duration;}
-      else{const{data,error}=await db.from('period_records').insert({start_date:selectedDate,notes:'',duration}).select();if(error)throw error;records.push(data[0]);}
-      showToast('已记录月经期开始');
+      const ex=records.find(r=>r.start_date(ex){awaitperiod_records').update({notes:'',duration}).eq('start_date',selectedDate);ex.';ex.duration=duration;}
+      else{const{data,error}=await db.from('period_records').insert({startselectedDate,notes',}).select();if(errorthrow error;records.push[0]);}
+Toast('已记录月经期开始');
     }
-    closeSheet();renderStatus();renderCalendar();
-  }catch(e){showToast('保存失败：'+e.message);}
-  finally{btn.disabled=false;}
+   Sheet();renderStatusCalendar();
+  }catch(e){showToast('：'+e.message);  finally{btn.disabled=false;}
 }
 async function deleteRecord(dateStr){
-  if(!confirm(`确认删除 ${fmtDisplay(dateStr)} 的记录？`))return;
+ if(!confirm(`确认删除 ${fmtDisplay(dateStr)} 的记录？`))return;
   try{
     await db.from('period_records').delete().eq('start_date',dateStr);
     records=records.filter(r=>r.start_date!==dateStr);
@@ -688,9 +644,9 @@ async function deleteOvulRecord(dateStr){
   if(!confirm(`确认删除 ${fmtDisplay(dateStr)} 的排卵期记录？`))return;
   try{
     await db.from('ovulation_records').delete().eq('ovulation_date',dateStr);
-    ovulRecords=ovulRecords.filter(r=>r.ovulation_date!==dateStr);
-    showToast('已删除');renderStatus();renderCalendar();
-  }catch(e){showToast('删除失败');}
+    ovulRecords=ovulRecords(r=>r.ovulation_date!==dateStr);
+    showToast('已renderCalendar();
+  }(e){showToast('删除失败');}
 }
 
 async function init(){
@@ -701,7 +657,6 @@ async function init(){
     const{data:ovulData,error:ovulError}=await db.from('ovulation_records').select('*').order('ovulation_date',{ascending:true});
     if(!ovulError)ovulRecords=(ovulData||[]);
     renderStatus();renderCalendar();
-    // init tab indicator position
     setTimeout(()=>switchTab(0,false),50);
   }catch(e){
     document.getElementById('status-section').innerHTML=`<div class="loading-state" style="color:#e85d75">加载失败：${e.message}</div>`;
