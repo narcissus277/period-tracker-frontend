@@ -1,15 +1,7 @@
 const SUPABASE_URL='https://mxfvgspptteadirmpjqy.supabase.co';
 const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14ZnZnc3BwdHRlYWRpcm1wanF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxOTQyMzAsImV4cCI6MjA5Nzc3MDIzMH0.HVeDbsECu7v0PVuggG4gnroXZj4aRv7IhR_AJ79BHh0';
-async function qry(path,opts){
-  var h=new Headers();
-  h.set('apikey',SUPABASE_KEY);
-  h.set('Authorization','Bearer '+SUPABASE_KEY);
-  h.set('Content-Type','application/json');
-  h.set('Prefer','return=representation');
-  var r=await fetch(SUPABASE_URL+'/rest/v1'+path,{method:'GET',headers:h,...opts});
-  if(!r.ok){throw new Error(await r.text());}
-  return await r.json();
-}
+const {createClient}=window.supabase;
+const db=createClient(SUPABASE_URL,SUPABASE_KEY);
 
 let records=[],ovulRecords=[],avgCycle=28,curYear=new Date().getFullYear(),curMonth=new Date().getMonth();
 let selectedDate=null,selectedOpt='period',duration=5,currentTab=0;
@@ -295,25 +287,25 @@ async function saveRecord(){
   try{
     if(selectedOpt==='clear'){
       // 清除经期记录
-      await qry('period_records').delete().eq('start_date',selectedDate);
+      await db.from('period_records').delete().eq('start_date',selectedDate);
       records=records.filter(r=>r.start_date!==selectedDate);
       // 清除排卵期记录
-      await qry('ovulation_records').delete().eq('ovulation_date',selectedDate);
+      await db.from('ovulation_records').delete().eq('ovulation_date',selectedDate);
       ovulRecords=ovulRecords.filter(r=>r.ovulation_date!==selectedDate);
       showToast('已清除记录');
     }else if(selectedOpt==='ovulation'){
       const ex=ovulRecords.find(r=>r.ovulation_date===selectedDate);
       if(ex){showToast('这天已经记录过排卵期了');}
-      else{const{data,error}=await qry('ovulation_records').insert({ovulation_date:selectedDate,notes:''}).select();if(error)throw error;ovulRecords.push(data[0]);showToast('已记录排卵期');}
+      else{const{data,error}=await db.from('ovulation_records').insert({ovulation_date:selectedDate,notes:''}).select();if(error)throw error;ovulRecords.push(data[0]);showToast('已记录排卵期');}
     }else if(selectedOpt==='mark'){
       const ex=records.find(r=>r.start_date===selectedDate);
-      if(ex){await qry('period_records').update({notes:'marked',duration:1}).eq('start_date',selectedDate);ex.notes='marked';ex.duration=1;}
-      else{const{data,error}=await qry('period_records').insert({start_date:selectedDate,notes:'marked',duration:1}).select();if(error)throw error;records.push(data[0]);}
+      if(ex){await db.from('period_records').update({notes:'marked',duration:1}).eq('start_date',selectedDate);ex.notes='marked';ex.duration=1;}
+      else{const{data,error}=await db.from('period_records').insert({start_date:selectedDate,notes:'marked',duration:1}).select();if(error)throw error;records.push(data[0]);}
       showToast('已标记');
     }else{
       const ex=records.find(r=>r.start_date===selectedDate);
-      if(ex){await qry('period_records').update({notes:'',duration}).eq('start_date',selectedDate);ex.notes='';ex.duration=duration;}
-      else{const{data,error}=await qry('period_records').insert({start_date:selectedDate,notes:'',duration}).select();if(error)throw error;records.push(data[0]);}
+      if(ex){await db.from('period_records').update({notes:'',duration}).eq('start_date',selectedDate);ex.notes='';ex.duration=duration;}
+      else{const{data,error}=await db.from('period_records').insert({start_date:selectedDate,notes:'',duration}).select();if(error)throw error;records.push(data[0]);}
       showToast('已记录月经期开始');
     }
     closeSheet();renderStatus();renderCalendar();
@@ -323,7 +315,7 @@ async function saveRecord(){
 async function deleteRecord(dateStr){
   if(!confirm(`确认删除 ${fmtDisplay(dateStr)} 的记录？`))return;
   try{
-    await qry('period_records').delete().eq('start_date',dateStr);
+    await db.from('period_records').delete().eq('start_date',dateStr);
     records=records.filter(r=>r.start_date!==dateStr);
     showToast('已删除');renderStatus();renderCalendar();
   }catch(e){showToast('删除失败');}
@@ -331,7 +323,7 @@ async function deleteRecord(dateStr){
 async function deleteOvulRecord(dateStr){
   if(!confirm(`确认删除 ${fmtDisplay(dateStr)} 的排卵期记录？`))return;
   try{
-    await qry('ovulation_records').delete().eq('ovulation_date',dateStr);
+    await db.from('ovulation_records').delete().eq('ovulation_date',dateStr);
     ovulRecords=ovulRecords.filter(r=>r.ovulation_date!==dateStr);
     showToast('已删除');renderStatus();renderCalendar();
   }catch(e){showToast('删除失败');}
@@ -339,10 +331,10 @@ async function deleteOvulRecord(dateStr){
 
 async function init(){
   try{
-    const{data,error}=await qry('period_records').select('*').order('start_date',{ascending:true});
+    const{data,error}=await db.from('period_records').select('*').order('start_date',{ascending:true});
     if(error)throw error;
     records=(data||[]).map(r=>({...r,duration:r.duration||5}));
-    const{data:ovulData,error:ovulError}=await qry('ovulation_records').select('*').order('ovulation_date',{ascending:true});
+    const{data:ovulData,error:ovulError}=await db.from('ovulation_records').select('*').order('ovulation_date',{ascending:true});
     if(!ovulError)ovulRecords=(ovulData||[]);
     renderStatus();renderCalendar();
     // init tab indicator position
