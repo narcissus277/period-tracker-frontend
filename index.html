@@ -13,6 +13,7 @@ p{color:#8A7A6A;font-size:13px;line-height:1.8;}
 .ring-inner{text-align:center;}
 .ring-day{font-size:26px;}
 .ring-label{font-size:9px;color:#B8A99A;}
+#msg{text-align:center;margin-top:20px;font-size:12px;color:#B8A99A;}
 </style>
 </head>
 <body>
@@ -28,6 +29,9 @@ p{color:#8A7A6A;font-size:13px;line-height:1.8;}
   <p style="text-align:center;margin-top:16px;font-size:20px;letter-spacing:1px">月经期</p>
   <p style="text-align:center;font-size:11px">注意保暖，多喝热水</p>
 </div>
-<p style="text-align:center;margin-top:30px;font-size:12px;color:#B8A99A">如果能看到这个页面，说明 HTML+CSS 没问题</p>
+<div id="msg">JS 加载中...</div>
+<script>
+document.getElementById('msg').textContent='✅ JS 执行成功！';
+</script>
 </body>
 </html>
