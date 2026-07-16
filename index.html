@@ -10,8 +10,6 @@
 <meta name="apple-mobile-web-app-title" content="牵牵的月相">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg-from:#FFF9F0;--bg-mid:#FFFDF5;--bg-to:#FFFBF0;
@@ -23,12 +21,12 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow:hidden;}
 body{
-  font-family:'Noto Sans SC',sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
   background:linear-gradient(160deg,var(--bg-from) 0%,var(--bg-mid) 50%,var(--bg-to) 100%);
   background-attachment:fixed;
   color:var(--text);height:100%;overflow:hidden;
 }
-.serif{font-family:'Noto Serif SC',serif;}
+.serif{font-family:Georgia,'Times New Roman',serif;}
 
 /* APP */
 .app{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:480px;margin:0 auto;}
@@ -236,8 +234,8 @@ body{
 .dur-btn{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:var(--text);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;}
 .dur-val{font-size:16px;font-weight:300;min-width:24px;text-align:center;}
 .sheet-btns{display:flex;gap:10px;margin-top:18px;}
-.btn-cancel{flex:1;padding:13px;border-radius:12px;background:rgba(255, 248, 235, 0.5);border:1px solid rgba(255,255,255,0.08);color:var(--text-mid);font-size:13px;font-family:'Noto Sans SC',sans-serif;cursor:pointer;}
-.btn-save{flex:2;padding:13px;border-radius:12px;background:var(--accent);border:none;color:white;font-size:13px;font-family:'Noto Sans SC',sans-serif;cursor:pointer;letter-spacing:.5px;}
+.btn-cancel{flex:1;padding:13px;border-radius:12px;background:rgba(255, 248, 235, 0.5);border:1px solid rgba(255,255,255,0.08);color:var(--text-mid);font-size:13px;font-family:-apple-system,sans-serif;cursor:pointer;}
+.btn-save{flex:2;padding:13px;border-radius:12px;background:var(--accent);border:none;color:white;font-size:13px;font-family:-apple-system,sans-serif;cursor:pointer;letter-spacing:.5px;}
 .btn-save:disabled{opacity:.4;cursor:not-allowed;}
 
 .loading-state{text-align:center;padding:60px 20px;color:var(--text-dim);font-size:13px;}
@@ -361,3 +359,5 @@ body{
 <div class="toast" id="toast"></div>
 
 <script src="app.js"></script>
+</body>
+</html>
