@@ -15,22 +15,16 @@
 <div class="page-title">牵牵的月相</div>
 <div class="page-sub">by 德拉 · 守护你每一天</div>
 </div>
-<div class="loading-state" id="status">🌙 步骤1/4: 加载supabase.js...</div>
+<div class="loading-state" id="status">🌙 js执行前...</div>
+<script>
+document.getElementById('status').textContent = '🌙 内联js执行了，加载supabase.js...';
+</script>
 <script src="supabase.js"></script>
 <script>
-document.getElementById('status').textContent = '🌙 步骤2/4: supabase.js加载成功，准备createClient...';
-setTimeout(() => {
-  try {
-    const SUPABASE_URL='https://mxfvgspptteadirmpjqy.supabase.co';
-    const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14ZnZnc3BwdHRlYWRpcm1wanF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxOTQyMzAsImV4cCI6MjA5Nzc3MDIzMH0.HVeDbsECu7v0PVuggG4gnroXZj4aRv7IhR_AJ79BHh0';
-    document.getElementById('status').textContent = '🌙 步骤3/4: 执行createClient...';
-    const {createClient} = window.supabase;
-    const db = createClient(SUPABASE_URL, SUPABASE_KEY);
-    document.getElementById('status').textContent = '✅ 步骤4/4: createClient成功！';
-  } catch(e) {
-    document.getElementById('status').innerHTML = '❌ 错误：' + e.message;
-  }
-}, 100);
+document.getElementById('status').textContent = '✅ supabase.js加载完毕！setTimeout待命...';
+setTimeout(function() {
+  document.getElementById('status').textContent = '✅ setTimeout触发了！';
+}, 500);
 </script>
 </body>
 </html>
