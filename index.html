@@ -1,1 +1,78 @@
-我将通过另一个方式来更新这个文件
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>🌙 牵牵的月相</title>
+<meta name="theme-color" content="#0d1b3e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="牵牵的月相">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-from:#FFF9F0;--bg-mid:#FFFDF5;--bg-to:#FFFBF0;
+  --card:rgba(255, 248, 235, 0.8);--card-border:rgba(200, 180, 150, 0.2);
+  --text:#4A3F35;--text-dim:#B8A99A;--text-mid:#8A7A6A;
+  --accent:#D48C7A;--period:#E8A090;--follicular:#7EB8D8;
+  --ovulation:#5CD0A0;--luteal:#D4B060;--today:#4ECDC4;--predict:#9B8AF0;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow:hidden;}
+body{
+  font-family:'Noto Sans SC',sans-serif;
+  background:linear-gradient(160deg,var(--bg-from) 0%,var(--bg-mid) 50%,var(--bg-to) 100%);
+  background-attachment:fixed;
+  color:var(--text);height:100%;overflow:hidden;
+}
+.serif{font-family:'Noto Serif SC',serif;}
+
+/* APP */
+.app{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:480px;margin:0 auto;}
+
+/* TOP AREA */
+.top-area{
+  flex-shrink:0;
+  padding-top:env(safe-area-inset-top,0);
+}
+.page-header{text-align:center;padding:24px 20px 14px;}
+.page-title{font-size:22px;font-weight:300;color:var(--text);letter-spacing:2px;}
+.page-sub{font-size:10px;color:var(--text-dim);letter-spacing:2.5px;margin-top:5px;text-transform:uppercase;}
+
+/* TAB BAR */
+.tab-bar{
+  display:flex;
+  position:relative;
+  border-bottom:1px solid rgba(150, 130, 110, 0.15);
+  padding:0 24px;
+  margin-top:4px;
+}
+.tab{
+  flex:1;
+  text-align:center;
+  padding:12px 0 13px;
+  font-size:13px;
+  color:var(--text-dim);
+  letter-spacing:.5px;
+  cursor:pointer;
+  transition:color .2s;
+  position:relative;
+  user-select:none;
+}
+.tab.active{color:var(--text);}
+.tab-line{
+  position:absolute;
+  bottom:-1px;
+  height:1.5px;
+  background:rgba(200,220,255,0.6);
+  border-radius:2px 2px 0 0;
+  transition:left .3s cubic-bezier(.4,0,.2,1),width .3s cubic-bezier(.4,0,.2,1);
+  left:24px;
+  width:calc(50% - 24px);
+}
+</style>
+</head>
+</html>
