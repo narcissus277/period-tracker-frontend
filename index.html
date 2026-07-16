@@ -31,7 +31,20 @@ p{color:#8A7A6A;font-size:13px;line-height:1.8;}
 </div>
 <div id="msg">JS 加载中...</div>
 <script>
-document.getElementById('msg').textContent='✅ JS 执行成功！';
+const _URL='https://mxfvgspptteadirmpjqy.supabase.co';
+const _KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14ZnZnc3BwdHRlYWRpcm1wanF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxOTQyMzAsImV4cCI6MjA5Nzc3MDIzMH0.HVeDbsECu7v0PVuggG4gnroXZj4aRv7IhR_AJ79BHh0';
+async function qry(path,opts){
+  var h=new Headers();
+  h.set('apikey',_KEY);
+  h.set('Authorization','Bearer '+_KEY);
+  h.set('Content-Type','application/json');
+  h.set('Prefer','return=representation');
+  var r=await fetch(_URL+'/rest/v1'+path,
+    {method:'GET',headers:h,...opts});
+  if(!r.ok){throw new Error(await r.text());}
+  return await r.json();
+}
+document.getElementById('msg').textContent='✅ qry 函数定义成功';
 </script>
 </body>
 </html>
