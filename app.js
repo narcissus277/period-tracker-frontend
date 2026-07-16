@@ -20,7 +20,6 @@ function fmtDisplay(s){const d=new Date(s+'T00:00:00');return`${d.getMonth()+1}�
 function fmtDateLabel(s){const d=new Date(s+'T00:00:00');const days=['日','一','二','三','四','五','六'];return`${d.getMonth()+1}月${d.getDate()}日 · 周${days[d.getDay()]}`;}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
 
-// CYCLE
 function calcCycle(){
   const real=records.filter(r=>r.notes!=='marked');
   if(!real.length)return{avgCycle:28,latest:null,nextPredicted:null,daysInCycle:0,currentPhase:null};
@@ -207,7 +206,6 @@ function renderPhaseStrip(){
   }).join('');
 }
 
-// TAB + SWIPE
 function switchTab(idx,animate=true){
   currentTab=idx;
   const wrapper=document.getElementById('swipe-wrapper');
